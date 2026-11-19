@@ -3,7 +3,7 @@
 Run from the project folder after gen.py: python3 tools/sfx.py ta  ->  assets/audio/sfx_ta.wav"""
 import subprocess, os, sys, json
 LANG = sys.argv[1] if len(sys.argv) > 1 else "ta"
-DUR = 45.0
+DUR = float(os.environ.get("DUR", 45))
 T = "tools/sfx_parts"; os.makedirs(T, exist_ok=True)
 SR = 44100
 PARTS = {

@@ -1,0 +1,10 @@
+Higgsfield MCP 2.0 | News | Warning/Alert | 45s
+
+0-4s Hook: "Free, unlimited video inside Claude", the claim in Higgsfield's own announcement
+4-7s Lead: "3 things to know before you connect it"
+7-16s Body 1: Higgsfield MCP 2.0 inside Claude. You type a brief, Claude runs video models (Veo, Kling, Seedance)
+16-19s Open loop 1: "The free part? That's point two"
+19-28s Body 2: 3-day trial, paid plan needed to connect, every video uses credits
+28-31s Open loop 2: "Point three is why this matters to you"
+31-38s Body 3: Higgsfield's agent-tool usage up 42x in 3 months. Video is moving into chat
+38-45s CTA
