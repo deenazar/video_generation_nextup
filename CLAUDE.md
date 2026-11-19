@@ -24,7 +24,12 @@ This repo makes vertical reels (1080x1920) for **NextUp Learn** (Instagram @next
   - If an asset is missing or you can't get it, **ask Nex**. Never draw a stand-in.
   - Logos: `npx hyperframes media-use resolve --type logo --intent "<brand>"`, or GitHub org avatars (`--from https://github.com/<org>.png`).
   - Photos: the HeyGen asset search if signed in, otherwise Wikimedia Commons with a credit line.
-- **Background:** a full-screen real image with a **black gradient fading in at the bottom** of the screen.
+- **Background:** use a full-screen real image (with a **black gradient fading in at the bottom**) **only on the beats
+  where that image really fits** (e.g. the hook, a "this is about YOU" beat). Every other scene gets a designed
+  background, varied across the reel: blue grid lines, white grid lines, plain white, plain grey (slowly drifting grid,
+  soft glows).
+- **Real logos move:** logos spin in, fly in and collide, pulse on the key word, wobble, ride charts. Never a static
+  logo when it can enter with motion.
 - **Icons** look the same as in past reels: real logo files in white rounded tiles or pills.
 - **Make it engaging.** Every reel needs attractive animation, motion graphics, SFX and VFX:
   - card entrances

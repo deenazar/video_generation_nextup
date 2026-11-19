@@ -207,7 +207,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#f7f9fc}
 .model i{flex:1;height:18px;background:#e2e8f0;border-radius:9px;overflow:hidden}
 .model u{display:block;height:100%;background:linear-gradient(90deg,#d97757,var(--red));transform-origin:0 50%}
 /* s4 */
-.loop{left:0;top:120px;width:960px;height:560px;padding:60px 40px;text-align:center}
+.loop{left:0;top:120px;width:960px;height:640px;padding:60px 40px;text-align:center}
 .free{position:relative;font-size:200px;font-weight:700;letter-spacing:-6px;line-height:1}
 .free span{display:inline-block}.free .q{color:var(--red)}
 .strike{position:absolute;left:150px;top:80px;width:620px;height:60px;overflow:visible}
@@ -258,6 +258,34 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#f7f9fc}
 .frow{position:absolute;left:40px;top:600px;display:flex;align-items:center;gap:30px}
 .follow{width:300px;height:100px;border-radius:24px;background:#0095f6;color:#fff;font-size:44px;font-weight:700;display:flex;align-items:center;justify-content:center}
 .heart{font-size:84px;color:var(--red);opacity:0}
+/* designed backgrounds (non-image scenes) */
+.bgpl{background:#fff}.bgpl.white{background:#ffffff}.bgpl.grey{background:#e5e7eb}
+.bgpl.bluegrid{background:#f3f7ff}.bgpl.whitegrid{background:#dfe4ec}
+.gridmv{position:absolute;left:0;top:0;width:1160px;height:2000px}
+.bluegrid .gridmv{background-image:linear-gradient(rgba(37,99,235,.22) 2px,transparent 2px),linear-gradient(90deg,rgba(37,99,235,.22) 2px,transparent 2px);background-size:72px 72px}
+.whitegrid .gridmv{background-image:linear-gradient(rgba(255,255,255,.95) 3px,transparent 3px),linear-gradient(90deg,rgba(255,255,255,.95) 3px,transparent 3px);background-size:72px 72px}
+.glow{position:absolute;width:900px;height:900px;border-radius:50%;opacity:.22;-webkit-mask:radial-gradient(circle,#000 0,transparent 68%);mask:radial-gradient(circle,#000 0,transparent 68%)}
+.g1{left:-300px;top:-200px;background:#3b82f6}.g2{left:480px;top:900px;background:var(--red)}
+.white .glow,.grey .glow{opacity:.12}
+.bgpl ~ * .kicker{background:var(--ink)}
+/* logo tiles */
+.tile{width:110px;height:110px;border-radius:28px;background:#fff;box-shadow:0 14px 34px rgba(15,23,42,.22);display:flex;align-items:center;justify-content:center}
+.tile img{width:64%;height:64%;object-fit:contain}
+.tile.big{width:150px;height:150px;border-radius:36px}.tile.sm{flex:none;width:90px;height:90px;border-radius:22px}
+.tile.dark{background:var(--ink)}
+.plug{position:absolute;left:150px;top:700px;width:660px;height:150px;display:flex;align-items:center;justify-content:space-between}
+.wire{width:360px;height:40px;overflow:visible}.wire path{fill:none;stroke:var(--red);stroke-width:8;stroke-linecap:round;stroke-dasharray:400;stroke-dashoffset:400}
+.duo{position:absolute;left:150px;top:680px;width:660px;height:150px;display:flex;align-items:center;justify-content:space-between}
+.plus{width:90px;height:90px;border-radius:50%;background:var(--red);color:#fff;font-size:70px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.mcpb{position:absolute;left:230px;top:160px;width:200px;text-align:center;background:var(--hl);font-size:36px;font-weight:700;border-radius:30px;padding:6px 0}
+.hcoin{width:88px;height:88px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fbbf24,#d97706);border:5px solid #fde68a;display:flex;align-items:center;justify-content:center}
+.hcoin img{width:56%;height:56%}
+.coin .hcoin{width:70px;height:70px}
+.ptag{position:absolute;left:380px;top:470px;width:200px;height:120px;background:var(--hl);border-radius:20px 20px 20px 20px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:46px;font-weight:700;box-shadow:0 14px 30px rgba(15,23,42,.2);transform-origin:50% -40px}
+.ptag img{width:50px;height:50px}
+.rider{position:absolute;left:330px;top:420px;width:90px;height:90px;opacity:0;z-index:4}.rider .tile{width:90px;height:90px;border-radius:24px}
+#s1card .who .lg,#s7card .sh .lg{transform-origin:50% 50%}
+.frow .tile{margin-left:6px}
 
 .mouth{position:absolute;left:326.0px;top:275.7px;width:152.3px;height:129.5px;opacity:0}
 #mouths{position:absolute;inset:0}
@@ -270,17 +298,19 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#f7f9fc}
  <div class="qm">“</div>
  <div class="hook"><span id="s1w0">Free,</span><span id="s1w1">unlimited</span><span id="s1w2">video</span><span id="s1w3">inside</span><span class="cl" id="s1cl"><img class="cll" src="assets/logos/claude.svg" alt="claude">Claude</span></div>
 </div>
-<div class="stamp" id="s1st">NOT THE WHOLE STORY</div><div class="burst" id="s1bu" style="left:480px;top:640px"><i id="s1bu_0"></i><i id="s1bu_1"></i><i id="s1bu_2"></i><i id="s1bu_3"></i><i id="s1bu_4"></i><i id="s1bu_5"></i><i id="s1bu_6"></i><i id="s1bu_7"></i><i id="s1bu_8"></i><i id="s1bu_9"></i><i id="s1bu_10"></i><i id="s1bu_11"></i><i id="s1bu_12"></i><i id="s1bu_13"></i></div></div></div><div id="s2" class="clip scene" data-start="6.6" data-duration="2.85" data-track-index="2" data-layout-allow-overflow><div class="bgph" id="s2bg"><img id="s2bgi" src="assets/photos/SHORTDRAMAS_1-poster.webp" alt="" style="object-position:42% 50%"><div class="bgfade"></div><div class="credit" data-layout-ignore>Image: Higgsfield</div></div><div class="wrap" id="s2w"><div class="card lead" id="s2card">
+<div class="plug" id="s1plug"><div class="tile big" id="s1hf"><img src="assets/logos/higgsfield_dark.svg" alt="higgsfield_dark"></div><svg class="wire" viewBox="0 0 360 40"><path id="s1wire" d="M5 20 C 90 -10, 270 50, 355 20"/></svg><div class="tile big" id="s1ct"><img src="assets/logos/claude.svg" alt="claude"></div></div>
+<div class="stamp" id="s1st">NOT THE WHOLE STORY</div><div class="burst" id="s1bu" style="left:480px;top:640px"><i id="s1bu_0"></i><i id="s1bu_1"></i><i id="s1bu_2"></i><i id="s1bu_3"></i><i id="s1bu_4"></i><i id="s1bu_5"></i><i id="s1bu_6"></i><i id="s1bu_7"></i><i id="s1bu_8"></i><i id="s1bu_9"></i><i id="s1bu_10"></i><i id="s1bu_11"></i><i id="s1bu_12"></i><i id="s1bu_13"></i></div><div class="burst" id="s1bu2" style="left:480px;top:780px"><i id="s1bu2_0"></i><i id="s1bu2_1"></i><i id="s1bu2_2"></i><i id="s1bu2_3"></i><i id="s1bu2_4"></i><i id="s1bu2_5"></i><i id="s1bu2_6"></i><i id="s1bu2_7"></i><i id="s1bu2_8"></i><i id="s1bu2_9"></i><i id="s1bu2_10"></i><i id="s1bu2_11"></i></div></div></div><div id="s2" class="clip scene" data-start="6.6" data-duration="2.85" data-track-index="2" data-layout-allow-overflow><div class="bgph bgpl bluegrid" id="s2bg"><div class="gridmv" id="s2bgi"></div><div class="glow g1"></div><div class="glow g2"></div></div><div class="wrap" id="s2w"><div class="card lead" id="s2card">
  <div class="three"><div class="dot" id="s2d0">1</div><div class="dot" id="s2d1">2</div><div class="dot" id="s2d2">3</div></div>
  <h2 id="s2h"><span class="red">3 things</span> to know</h2>
  <p id="s2p">before you connect it</p>
 </div>
 <div class="connect" id="s2btn"><img class="lgw" src="assets/logos/higgsfield.svg" alt="higgsfield">Connect to Claude</div>
 <div class="wait" id="s2wait">✋ Wait</div>
-<svg class="cursor" id="s2cur" viewBox="0 0 24 24"><path d="M4 2l15 10-7 1.5 4 7.5-3 1.5-4-7.5-5 4.5z"/></svg><div class="ripple" id="s2rip" style="left:540px;top:615px"></div></div></div><div id="s3" class="clip scene" data-start="9.45" data-duration="9.75" data-track-index="2" data-layout-allow-overflow><div class="bgph" id="s3bg"><img id="s3bgi" src="assets/photos/video-generation-poster.webp" alt="" style="object-position:58% 50%"><div class="bgfade"></div><div class="credit" data-layout-ignore>Image: Higgsfield</div></div><div class="wrap" id="s3w"><div class="numchip" id="s3num"><b>1</b></div><div class="kicker" id="s3k">What happened</div>
+<svg class="cursor" id="s2cur" viewBox="0 0 24 24"><path d="M4 2l15 10-7 1.5 4 7.5-3 1.5-4-7.5-5 4.5z"/></svg><div class="ripple" id="s2rip" style="left:540px;top:615px"></div></div></div><div id="s3" class="clip scene" data-start="9.45" data-duration="9.75" data-track-index="2" data-layout-allow-overflow><div class="bgph bgpl whitegrid" id="s3bg"><div class="gridmv" id="s3bgi"></div><div class="glow g1"></div><div class="glow g2"></div></div><div class="wrap" id="s3w"><div class="numchip" id="s3num"><b>1</b></div><div class="kicker" id="s3k">What happened</div>
 <div class="card ann" id="s3ann"><img class="annimg" src="assets/photos/mcp-og-chatgpt-claude-20260925.webp" alt="">
  <div class="annbar"><span class="pill dark" id="s3mcp"><img class="lgw" src="assets/logos/higgsfield.svg" alt="higgsfield">Higgsfield MCP <b class="v2" id="s3v2">2.0</b></span>
  <span class="pill white" id="s3in">inside <img class="lgi" src="assets/logos/claude.svg" alt="claude">Claude</span></div></div>
+<div class="duo" id="s3duo"><div class="tile big" id="s3hf"><img src="assets/logos/higgsfield_dark.svg" alt="higgsfield_dark"></div><div class="plus" id="s3plus">+</div><div class="tile big" id="s3ct"><img src="assets/logos/claude.svg" alt="claude"></div><div class="mcpb" id="s3mcpb">MCP 2.0</div></div><div class="burst" id="s3bu" style="left:480px;top:760px"><i id="s3bu_0"></i><i id="s3bu_1"></i><i id="s3bu_2"></i><i id="s3bu_3"></i><i id="s3bu_4"></i><i id="s3bu_5"></i><i id="s3bu_6"></i><i id="s3bu_7"></i><i id="s3bu_8"></i><i id="s3bu_9"></i><i id="s3bu_10"></i><i id="s3bu_11"></i><i id="s3bu_12"></i><i id="s3bu_13"></i><i id="s3bu_14"></i><i id="s3bu_15"></i></div>
 <div class="card chat" id="s3chat">
  <div class="chead"><img class="lgc" src="assets/logos/claude.svg" alt="claude"><b>Claude</b><span class="hfc"><img class="lgs" src="assets/logos/higgsfield_dark.svg" alt="higgsfield_dark">Higgsfield connected</span></div>
  <div class="ub" id="s3ub"><span id="s3t0">M</span><span id="s3t1">a</span><span id="s3t2">k</span><span id="s3t3">e</span> <span id="s3t5">a</span> <span id="s3t7">1</span><span id="s3t8">5</span><span id="s3t9">s</span> <span id="s3t11">l</span><span id="s3t12">a</span><span id="s3t13">u</span><span id="s3t14">n</span><span id="s3t15">c</span><span id="s3t16">h</span> <span id="s3t18">v</span><span id="s3t19">i</span><span id="s3t20">d</span><span id="s3t21">e</span><span id="s3t22">o</span> <span id="s3t24">f</span><span id="s3t25">o</span><span id="s3t26">r</span> <span id="s3t28">m</span><span id="s3t29">y</span> <span id="s3t31">s</span><span id="s3t32">n</span><span id="s3t33">e</span><span id="s3t34">a</span><span id="s3t35">k</span><span id="s3t36">e</span><span id="s3t37">r</span><span id="s3t38">s</span></div>
@@ -290,33 +320,34 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#f7f9fc}
   <div class="model" id="s3m1"><img class="lgm" src="assets/logos/kling.svg" alt="kling"><b>Kling</b><i><u id="s3p1"></u></i></div>
   <div class="model" id="s3m2"><img class="lgm" src="assets/logos/bytedance.svg" alt="bytedance"><b>Seedance</b><i><u id="s3p2"></u></i></div>
  </div>
-</div></div><div class="src" id="s3src"><b>SOURCE</b>Higgsfield MCP announcement</div></div><div id="s4" class="clip scene" data-start="19.2" data-duration="2.70" data-track-index="2" data-layout-allow-overflow><div class="bgph" id="s4bg"><img id="s4bgi" src="assets/photos/genjutsu-intro-poster.webp" alt="" style="object-position:50% 50%"><div class="bgfade"></div><div class="credit" data-layout-ignore>Image: Higgsfield</div></div><div class="wrap" id="s4w"><div class="card loop" id="s4card">
+</div><div class="burst" id="s3mb0" style="left:70px;top:470px"><i id="s3mb0_0"></i><i id="s3mb0_1"></i><i id="s3mb0_2"></i><i id="s3mb0_3"></i><i id="s3mb0_4"></i><i id="s3mb0_5"></i><i id="s3mb0_6"></i><i id="s3mb0_7"></i><i id="s3mb0_8"></i><i id="s3mb0_9"></i></div><div class="burst" id="s3mb1" style="left:70px;top:562px"><i id="s3mb1_0"></i><i id="s3mb1_1"></i><i id="s3mb1_2"></i><i id="s3mb1_3"></i><i id="s3mb1_4"></i><i id="s3mb1_5"></i><i id="s3mb1_6"></i><i id="s3mb1_7"></i><i id="s3mb1_8"></i><i id="s3mb1_9"></i></div><div class="burst" id="s3mb2" style="left:70px;top:654px"><i id="s3mb2_0"></i><i id="s3mb2_1"></i><i id="s3mb2_2"></i><i id="s3mb2_3"></i><i id="s3mb2_4"></i><i id="s3mb2_5"></i><i id="s3mb2_6"></i><i id="s3mb2_7"></i><i id="s3mb2_8"></i><i id="s3mb2_9"></i></div></div><div class="src" id="s3src"><b>SOURCE</b>Higgsfield MCP announcement</div></div><div id="s4" class="clip scene" data-start="19.2" data-duration="2.70" data-track-index="2" data-layout-allow-overflow><div class="bgph bgpl grey" id="s4bg"><div class="gridmv" id="s4bgi"></div><div class="glow g1"></div><div class="glow g2"></div></div><div class="wrap" id="s4w"><div class="card loop" id="s4card">
  <div class="free"><span class="q">“</span><span id="s4free">FREE</span><span class="q">”</span>
  <svg class="strike" viewBox="0 0 600 60"><path id="s4line" d="M10 40 C 160 10, 380 60, 590 18"/></svg></div>
  <div class="qbig" id="s4q">?</div>
+ <div class="ptag" id="s4tag"><img src="assets/logos/higgsfield_dark.svg" alt=""><span>$0?</span></div>
  <div class="next" id="s4next">That's point two →</div>
-</div><div class="burst" id="s4bu" style="left:760px;top:380px"><i id="s4bu_0"></i><i id="s4bu_1"></i><i id="s4bu_2"></i><i id="s4bu_3"></i><i id="s4bu_4"></i><i id="s4bu_5"></i><i id="s4bu_6"></i><i id="s4bu_7"></i><i id="s4bu_8"></i><i id="s4bu_9"></i><i id="s4bu_10"></i><i id="s4bu_11"></i></div></div></div><div id="s5" class="clip scene" data-start="21.9" data-duration="6.90" data-track-index="2" data-layout-allow-overflow><div class="bgph" id="s5bg"><img id="s5bgi" src="assets/photos/houndkeeper-center-poster.webp" alt="" style="object-position:62% 50%"><div class="bgfade"></div><div class="credit" data-layout-ignore>Image: Higgsfield</div></div><div class="wrap" id="s5w"><div class="numchip" id="s5num"><b>2</b></div><div class="kicker" id="s5k">The catch</div>
+</div><div class="burst" id="s4bu" style="left:760px;top:380px"><i id="s4bu_0"></i><i id="s4bu_1"></i><i id="s4bu_2"></i><i id="s4bu_3"></i><i id="s4bu_4"></i><i id="s4bu_5"></i><i id="s4bu_6"></i><i id="s4bu_7"></i><i id="s4bu_8"></i><i id="s4bu_9"></i><i id="s4bu_10"></i><i id="s4bu_11"></i></div></div></div><div id="s5" class="clip scene" data-start="21.9" data-duration="6.90" data-track-index="2" data-layout-allow-overflow><div class="bgph bgpl bluegrid" id="s5bg"><div class="gridmv" id="s5bgi"></div><div class="glow g1"></div><div class="glow g2"></div></div><div class="wrap" id="s5w"><div class="numchip" id="s5num"><b>2</b></div><div class="kicker" id="s5k">The catch</div>
 <div class="card catch" id="s5a"><div class="ic cal"><div class="days"><span id="s5day0">1</span><span id="s5day1">2</span><span id="s5day2">3</span></div></div>
  <div><b>3-day trial</b><small>then it ends</small></div><span class="pill red tagr" id="s5end">ends</span></div>
 <div class="card catch" id="s5b"><div class="ic"><svg viewBox="0 0 48 48"><path id="s5shackle" d="M15 22v-7a9 9 0 0118 0v7" fill="none" stroke="#0f172a" stroke-width="4.5" stroke-linecap="round"/><rect x="9" y="22" width="30" height="21" rx="5" fill="#0f172a"/><circle cx="24" cy="31" r="3.2" fill="#fff"/><path d="M24 33v4" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></div>
  <div><b>Paid plan to connect</b><small>says Higgsfield's own docs</small></div></div>
-<div class="card catch" id="s5c"><div class="ic"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="#f59e0b"/><circle cx="24" cy="24" r="14" fill="none" stroke="#fde68a" stroke-width="3"/><text x="24" y="31" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="Pop">C</text></svg></div>
+<div class="card catch" id="s5c"><div class="ic"><div class="hcoin"><img src="assets/logos/higgsfield.svg" alt=""></div></div>
  <div class="cw"><b>Every video uses credits</b><div class="meter"><u id="s5meter"></u></div></div></div>
-<div class="coin" id="s5coin0"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="#f59e0b"/><circle cx="24" cy="24" r="14" fill="none" stroke="#fde68a" stroke-width="3"/><text x="24" y="31" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="Pop">C</text></svg></div><div class="coin" id="s5coin1"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="#f59e0b"/><circle cx="24" cy="24" r="14" fill="none" stroke="#fde68a" stroke-width="3"/><text x="24" y="31" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="Pop">C</text></svg></div><div class="coin" id="s5coin2"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="#f59e0b"/><circle cx="24" cy="24" r="14" fill="none" stroke="#fde68a" stroke-width="3"/><text x="24" y="31" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="Pop">C</text></svg></div><div class="coin" id="s5coin3"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="#f59e0b"/><circle cx="24" cy="24" r="14" fill="none" stroke="#fde68a" stroke-width="3"/><text x="24" y="31" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="Pop">C</text></svg></div><div class="coin" id="s5coin4"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="#f59e0b"/><circle cx="24" cy="24" r="14" fill="none" stroke="#fde68a" stroke-width="3"/><text x="24" y="31" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="Pop">C</text></svg></div></div><div class="src" id="s5src"><b>SOURCE</b>Higgsfield docs &amp; pricing</div></div><div id="s6" class="clip scene" data-start="28.8" data-duration="2.80" data-track-index="2" data-layout-allow-overflow><div class="bgph" id="s6bg"><img id="s6bgi" src="assets/photos/android-head-cover-poster.webp" alt="" style="object-position:50% 40%"><div class="bgfade"></div><div class="credit" data-layout-ignore>Image: Higgsfield</div></div><div class="wrap" id="s6w"><div class="card why" id="s6card"><div class="p3" id="s6p3">Point three</div>
+<div class="coin" id="s5coin0"><div class="hcoin"><img src="assets/logos/higgsfield.svg" alt=""></div></div><div class="coin" id="s5coin1"><div class="hcoin"><img src="assets/logos/higgsfield.svg" alt=""></div></div><div class="coin" id="s5coin2"><div class="hcoin"><img src="assets/logos/higgsfield.svg" alt=""></div></div><div class="coin" id="s5coin3"><div class="hcoin"><img src="assets/logos/higgsfield.svg" alt=""></div></div><div class="coin" id="s5coin4"><div class="hcoin"><img src="assets/logos/higgsfield.svg" alt=""></div></div></div><div class="src" id="s5src"><b>SOURCE</b>Higgsfield docs &amp; pricing</div></div><div id="s6" class="clip scene" data-start="28.8" data-duration="2.80" data-track-index="2" data-layout-allow-overflow><div class="bgph" id="s6bg"><img id="s6bgi" src="assets/photos/genjutsu-intro-poster.webp" alt="" style="object-position:50% 50%"><div class="bgfade"></div><div class="credit" data-layout-ignore>Image: Higgsfield</div></div><div class="wrap" id="s6w"><div class="card why" id="s6card"><div class="p3" id="s6p3">Point three</div>
  <h2>is why this matters to <span class="you" id="s6you">YOU</span></h2></div>
-<div class="arrow" id="s6arr"><svg viewBox="0 0 120 200"><path d="M60 10 C 90 70, 20 110, 60 180 M30 150 L60 185 L92 150"/></svg></div></div></div><div id="s7" class="clip scene" data-start="31.6" data-duration="7.90" data-track-index="2" data-layout-allow-overflow><div class="bgph" id="s7bg"><img id="s7bgi" src="assets/photos/main-page-banner-poster.webp" alt="" style="object-position:62% 50%"><div class="bgfade"></div><div class="credit" data-layout-ignore>Image: Higgsfield</div></div><div class="wrap" id="s7w"><div class="numchip" id="s7num"><b>3</b></div><div class="kicker" id="s7k">What's next</div>
+<div class="arrow" id="s6arr"><svg viewBox="0 0 120 200"><path d="M60 10 C 90 70, 20 110, 60 180 M30 150 L60 185 L92 150"/></svg></div></div></div><div id="s7" class="clip scene" data-start="31.6" data-duration="7.90" data-track-index="2" data-layout-allow-overflow><div class="bgph bgpl whitegrid" id="s7bg"><div class="gridmv" id="s7bgi"></div><div class="glow g1"></div><div class="glow g2"></div></div><div class="wrap" id="s7w"><div class="numchip" id="s7num"><b>3</b></div><div class="kicker" id="s7k">What's next</div>
 <div class="card stat" id="s7card"><div class="sheen" id="s7sh"></div>
  <div class="sh"><img class="lg" src="assets/logos/higgsfield_dark.svg" alt="higgsfield_dark"><b>Higgsfield says</b></div>
  <div class="lbl">agent-tool usage</div>
  <div class="row"><div class="n42" id="s7big"><span class="odo" data-layout-ignore id="s7n" style="height:220px"><span class="col" style="height:220px"><span class="strip" id="s7n_0"><span style="height:220px">0</span><span style="height:220px">1</span><span style="height:220px">2</span><span style="height:220px">3</span><span style="height:220px">4</span><span style="height:220px">5</span><span style="height:220px">6</span><span style="height:220px">7</span><span style="height:220px">8</span><span style="height:220px">9</span><span style="height:220px">0</span><span style="height:220px">1</span><span style="height:220px">2</span><span style="height:220px">3</span><span style="height:220px">4</span><span style="height:220px">5</span><span style="height:220px">6</span><span style="height:220px">7</span><span style="height:220px">8</span><span style="height:220px">9</span></span></span><span class="col" style="height:220px"><span class="strip" id="s7n_1"><span style="height:220px">0</span><span style="height:220px">1</span><span style="height:220px">2</span><span style="height:220px">3</span><span style="height:220px">4</span><span style="height:220px">5</span><span style="height:220px">6</span><span style="height:220px">7</span><span style="height:220px">8</span><span style="height:220px">9</span><span style="height:220px">0</span><span style="height:220px">1</span><span style="height:220px">2</span><span style="height:220px">3</span><span style="height:220px">4</span><span style="height:220px">5</span><span style="height:220px">6</span><span style="height:220px">7</span><span style="height:220px">8</span><span style="height:220px">9</span></span></span></span><span class="x">×</span></div><span class="pill red" id="s7m">in 3 months</span></div>
- <svg class="curve" viewBox="0 0 860 200"><path class="base" d="M10 190 H850"/><path id="s7c" d="M10 186 C 300 184, 520 170, 640 120 S 800 20, 850 8"/></svg>
+ <div class="rider" id="s7ride"><div class="tile dark" id="s7rt"><img src="assets/logos/higgsfield.svg" alt="higgsfield"></div></div><svg class="curve" viewBox="0 0 860 200"><path class="base" d="M10 190 H850"/><path id="s7c" d="M10 186 C 300 184, 520 170, 640 120 S 800 20, 850 8"/></svg>
 </div>
 <div class="card vchat" id="s7v"><div class="vb"><img src="assets/photos/robot-pop-cover-web-poster.webp" alt=""><div class="play"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="rgba(15,23,42,.6)"/><path d="M10 7.5l7 4.5-7 4.5z" fill="#fff"/></svg></div></div>
- <div class="vt">Video is moving <span class="hl" id="s7hl">into chat</span></div></div><div class="burst" id="s7bu" style="left:300px;top:470px"><i id="s7bu_0"></i><i id="s7bu_1"></i><i id="s7bu_2"></i><i id="s7bu_3"></i><i id="s7bu_4"></i><i id="s7bu_5"></i><i id="s7bu_6"></i><i id="s7bu_7"></i><i id="s7bu_8"></i><i id="s7bu_9"></i><i id="s7bu_10"></i><i id="s7bu_11"></i><i id="s7bu_12"></i><i id="s7bu_13"></i></div></div><div class="src" id="s7src"><b>SOURCE</b>Higgsfield</div></div><div id="s8" class="clip scene" data-start="39.5" data-duration="3.90" data-track-index="2" data-layout-allow-overflow><div class="bgph" id="s8bg"><img id="s8bgi" src="assets/photos/editorial-motion-graphics-thumbnail.webp" alt="" style="object-position:38% 50%"><div class="bgfade"></div><div class="credit" data-layout-ignore>Image: Higgsfield</div></div><div class="wrap" id="s8w"><div class="card poll" id="s8poll"><div class="igh"><img class="iglogo" src="assets/logos/instagram.svg" alt="instagram"><b>Would you pay for it?</b></div>
+ <div class="tile sm" id="s7cl"><img src="assets/logos/claude.svg" alt="claude"></div><div class="vt">Video is moving <span class="hl" id="s7hl">into chat</span></div></div><div class="burst" id="s7bu" style="left:300px;top:470px"><i id="s7bu_0"></i><i id="s7bu_1"></i><i id="s7bu_2"></i><i id="s7bu_3"></i><i id="s7bu_4"></i><i id="s7bu_5"></i><i id="s7bu_6"></i><i id="s7bu_7"></i><i id="s7bu_8"></i><i id="s7bu_9"></i><i id="s7bu_10"></i><i id="s7bu_11"></i><i id="s7bu_12"></i><i id="s7bu_13"></i></div></div><div class="src" id="s7src"><b>SOURCE</b>Higgsfield</div></div><div id="s8" class="clip scene" data-start="39.5" data-duration="3.90" data-track-index="2" data-layout-allow-overflow><div class="bgph bgpl white" id="s8bg"><div class="gridmv" id="s8bgi"></div><div class="glow g1"></div><div class="glow g2"></div></div><div class="wrap" id="s8w"><div class="card poll" id="s8poll"><div class="igh"><img class="iglogo" src="assets/logos/instagram.svg" alt="instagram"><b>Would you pay for it?</b></div>
  <div class="opt" id="s8o0"><i id="s8f0"></i><span>Yes, worth it</span></div>
  <div class="opt" id="s8o1"><i id="s8f1"></i><span>No, I'll wait</span></div>
  <div class="cmt" id="s8cmt">Let me know below ↓</div>
- <div class="frow"><div class="follow" id="s8fol">Follow</div><div class="heart" id="s8heart">❤</div></div>
+ <div class="frow"><div class="follow" id="s8fol">Follow</div><div class="tile sm" id="s8a"><img src="assets/logos/claude.svg" alt="claude"></div><div class="tile sm" id="s8b"><img src="assets/logos/higgsfield_dark.svg" alt="higgsfield_dark"></div><div class="heart" id="s8heart">❤</div></div>
  <svg class="cursor" id="s8cur" viewBox="0 0 24 24"><path d="M4 2l15 10-7 1.5 4 7.5-3 1.5-4-7.5-5 4.5z"/></svg><div class="ripple" id="s8rip" style="left:190px;top:650px"></div></div></div></div>
  <div id="avatar" class="clip" data-start="0" data-duration="43.40" data-track-index="4" data-layout-ignore><div id="avpop"><div id="avbreath">
   <img id="p_count" class="pose" src="assets/avatar/count.png" alt=""><img id="p_five_figures" class="pose" src="assets/avatar/five_figures.png" alt=""><img id="p_point_right" class="pose" src="assets/avatar/point_right.png" alt=""><img id="p_shocked" class="pose" src="assets/avatar/shocked.png" alt=""><img id="p_surprised" class="pose" src="assets/avatar/surprised.png" alt=""><img id="p_thinking" class="pose" src="assets/avatar/thinking.png" alt=""><img id="p_thumbs_up2" class="pose" src="assets/avatar/thumbs_up2.png" alt=""><img id="p_wave" class="pose" src="assets/avatar/wave.png" alt=""><img id="p_what" class="pose" src="assets/avatar/what.png" alt=""><div id="neutral"><img class="base" src="assets/avatar/m_closed.png" alt=""></div><div id="mouths"><img id="m_closed" class="mouth" src="assets/avatar/mouth/m_closed.png" alt=""><img id="m_small" class="mouth" src="assets/avatar/mouth/m_small.png" alt=""><img id="m_round" class="mouth" src="assets/avatar/mouth/m_round.png" alt=""><img id="m_open" class="mouth" src="assets/avatar/mouth/m_open.png" alt=""><img id="m_teeth" class="mouth" src="assets/avatar/mouth/m_teeth.png" alt=""></div></div></div></div>
@@ -343,7 +374,26 @@ tl.fromTo("#s1w0",{y:40,opacity:0,scale:.7},{scale:1,opacity:1,y:0,x:0,rotation:
 tl.fromTo("#s1w1",{y:40,opacity:0,scale:.7},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.3,ease:"back.out(3)"},2.20);
 tl.fromTo("#s1w2",{y:40,opacity:0,scale:.7},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.3,ease:"back.out(3)"},2.77);
 tl.fromTo("#s1w3",{y:40,opacity:0,scale:.7},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.3,ease:"back.out(3)"},3.15);
+tl.fromTo("#s1card .who .lg",{scale:0,rotation:-200,opacity:0},{scale:1,rotation:0,opacity:1,x:0,y:0,duration:0.7,ease:"back.out(2.2)"},0.35);
 tl.fromTo("#s1cl",{scale:0,opacity:0,rotation:-12},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.35,ease:"back.out(3)"},3.66);
+tl.fromTo("#s1cl .cll",{scale:0,rotation:-360,opacity:0},{scale:1,rotation:0,opacity:1,x:0,y:0,duration:0.6,ease:"back.out(2.2)"},3.66);
+tl.fromTo("#s1plug",{y:60,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.3,ease:"expo.out"},3.75);
+tl.fromTo("#s1hf",{x:-300,rotation:-360,opacity:0},{scale:1,rotation:0,opacity:1,x:0,y:0,duration:0.5,ease:"back.out(2.2)"},3.75);
+tl.fromTo("#s1ct",{x:300,rotation:360,opacity:0},{scale:1,rotation:0,opacity:1,x:0,y:0,duration:0.5,ease:"back.out(2.2)"},3.95);
+tl.fromTo("#s1wire",{strokeDashoffset:400},{strokeDashoffset:0,duration:.35,ease:"power2.out"},4.15);
+tl.set("#s1bu2",{opacity:1},4.45);tl.to("#s1bu2",{opacity:0,duration:.25},4.90);
+tl.fromTo("#s1bu2_0",{x:0,y:0,scale:1},{x:140,y:0,scale:.2,duration:.6,ease:"power3.out"},4.45);
+tl.fromTo("#s1bu2_1",{x:0,y:0,scale:1},{x:121,y:70,scale:.2,duration:.6,ease:"power3.out"},4.45);
+tl.fromTo("#s1bu2_2",{x:0,y:0,scale:1},{x:70,y:121,scale:.2,duration:.6,ease:"power3.out"},4.45);
+tl.fromTo("#s1bu2_3",{x:0,y:0,scale:1},{x:-0,y:140,scale:.2,duration:.6,ease:"power3.out"},4.45);
+tl.fromTo("#s1bu2_4",{x:0,y:0,scale:1},{x:-70,y:121,scale:.2,duration:.6,ease:"power3.out"},4.45);
+tl.fromTo("#s1bu2_5",{x:0,y:0,scale:1},{x:-121,y:70,scale:.2,duration:.6,ease:"power3.out"},4.45);
+tl.fromTo("#s1bu2_6",{x:0,y:0,scale:1},{x:-140,y:-0,scale:.2,duration:.6,ease:"power3.out"},4.45);
+tl.fromTo("#s1bu2_7",{x:0,y:0,scale:1},{x:-121,y:-70,scale:.2,duration:.6,ease:"power3.out"},4.45);
+tl.fromTo("#s1bu2_8",{x:0,y:0,scale:1},{x:-70,y:-121,scale:.2,duration:.6,ease:"power3.out"},4.45);
+tl.fromTo("#s1bu2_9",{x:0,y:0,scale:1},{x:0,y:-140,scale:.2,duration:.6,ease:"power3.out"},4.45);
+tl.fromTo("#s1bu2_10",{x:0,y:0,scale:1},{x:70,y:-121,scale:.2,duration:.6,ease:"power3.out"},4.45);
+tl.fromTo("#s1bu2_11",{x:0,y:0,scale:1},{x:121,y:-70,scale:.2,duration:.6,ease:"power3.out"},4.45);
 tl.fromTo("#s1sh",{x:-300},{x:1300,duration:.9,ease:"power2.inOut"},3.90);
 tl.fromTo("#s1st",{scale:2.6,opacity:0,rotation:-24},{scale:1,opacity:1,rotation:-8,duration:.24,ease:"power4.in"},4.6);
 tl.set("#s1bu",{opacity:1},4.84);tl.to("#s1bu",{opacity:0,duration:.25},5.29);
@@ -367,7 +417,7 @@ tl.fromTo("#s1card",{x:0},{x:-16,duration:.05,yoyo:true,repeat:5},4.86);
 tl.fromTo("#s1card .hook",{opacity:1},{opacity:.35,duration:.4},5.2);
 tl.fromTo("#s2w",{opacity:0,y:120,rotationX:20,scale:.94,filter:"blur(12px)"},{opacity:1,y:0,rotationX:0,scale:1,filter:"blur(0px)",duration:.5,ease:"expo.out"},6.62);
 tl.to("#s2w",{x:-520,opacity:0,filter:"blur(16px)",duration:.26,ease:"power3.in"},9.17);
-tl.fromTo("#s2bgi",{scale:1.16},{scale:1.02,duration:2.85,ease:"power1.out"},6.60);
+tl.fromTo("#s2bgi",{x:0,y:0},{x:-72,y:-72,duration:2.85,ease:"none"},6.60);
 tl.fromTo("#s2bg",{opacity:0},{opacity:1,duration:.3,ease:"power1.out"},6.55);
 tl.fromTo("#s2card",{y:160,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.45,ease:"expo.out"},6.65);
 tl.fromTo("#s2d0",{scale:0,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.3,ease:"back.out(3)"},7.00);
@@ -376,12 +426,14 @@ tl.fromTo("#s2d2",{scale:0,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,dura
 tl.fromTo("#s2h",{y:30,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.35,ease:"expo.out"},7.04);
 tl.fromTo("#s2p",{y:30,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.35,ease:"expo.out"},7.75);
 tl.fromTo("#s2btn",{y:80,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.35,ease:"back.out(2)"},7.95);
+tl.fromTo("#s2btn .lgw",{scale:0,rotation:-200,opacity:0},{scale:1,rotation:0,opacity:1,x:0,y:0,duration:0.6,ease:"back.out(2.2)"},8.00);
+tl.fromTo("#s2btn",{scale:1},{scale:1.08,duration:.14,yoyo:true,repeat:1,ease:"power2.out",immediateRender:false},8.70);
 tl.fromTo("#s2cur",{x:900,y:900,opacity:0},{x:900,y:900,opacity:1,duration:.15},8.2);tl.to("#s2cur",{x:525,y:600,duration:.4,ease:"power3.inOut"},8.3);
 tl.fromTo("#s2rip",{scale:.2,opacity:.9},{scale:2.4,opacity:0,duration:.5,ease:"power2.out"},8.70);
 tl.fromTo("#s2wait",{scale:2.2,opacity:0,rotation:-15},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.22,ease:"power4.in"},8.75);
 tl.fromTo("#s3w",{opacity:0,y:120,rotationX:20,scale:.94,filter:"blur(12px)"},{opacity:1,y:0,rotationX:0,scale:1,filter:"blur(0px)",duration:.5,ease:"expo.out"},9.47);
 tl.to("#s3w",{x:-520,opacity:0,filter:"blur(16px)",duration:.26,ease:"power3.in"},18.92);
-tl.fromTo("#s3bgi",{scale:1.16},{scale:1.02,duration:9.75,ease:"power1.out"},9.45);
+tl.fromTo("#s3bgi",{x:0,y:0},{x:-72,y:-72,duration:9.75,ease:"none"},9.45);
 tl.fromTo("#s3bg",{opacity:0},{opacity:1,duration:.3,ease:"power1.out"},9.40);
 tl.fromTo("#s3src",{opacity:0,x:60},{opacity:1,x:0,duration:.35,ease:"expo.out"},10.05);
 tl.to("#s3src",{opacity:0,duration:.2},18.92);
@@ -389,8 +441,33 @@ tl.fromTo("#s3num",{scale:0,opacity:0,rotation:-90},{scale:1,opacity:1,y:0,x:0,r
 tl.fromTo("#s3k",{x:-80,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.4,ease:"expo.out"},9.70);
 tl.fromTo("#s3ann",{y:160,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.5,ease:"expo.out"},9.65);
 tl.fromTo("#s3mcp",{x:-120,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.4,ease:"back.out(2)"},10.30);
+tl.fromTo("#s3duo",{opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.1,ease:"none"},10.35);
+tl.fromTo("#s3hf",{x:-420,rotation:-540,opacity:0},{scale:1,rotation:0,opacity:1,x:0,y:0,duration:0.7,ease:"back.out(2.2)"},10.35);
+tl.fromTo("#s3hf",{scale:1},{scale:1.18,duration:.14,yoyo:true,repeat:1,ease:"power2.out",immediateRender:false},11.20);
+tl.fromTo("#s3hf",{rotation:0},{rotation:8,duration:.12,yoyo:true,repeat:3,ease:"sine.inOut",immediateRender:false},11.50);
 tl.fromTo("#s3v2",{scale:0,opacity:0,rotation:-30},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.35,ease:"back.out(4)"},12.33);
 tl.fromTo("#s3in",{x:120,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.4,ease:"back.out(2)"},13.10);
+tl.fromTo("#s3ct",{x:420,rotation:540,opacity:0},{scale:1,rotation:0,opacity:1,x:0,y:0,duration:0.45,ease:"back.out(2.2)"},13.10);
+tl.fromTo("#s3plus",{scale:0,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.25,ease:"back.out(4)"},13.40);
+tl.set("#s3bu",{opacity:1},13.45);tl.to("#s3bu",{opacity:0,duration:.25},13.90);
+tl.fromTo("#s3bu_0",{x:0,y:0,scale:1},{x:200,y:0,scale:.2,duration:.6,ease:"power3.out"},13.45);
+tl.fromTo("#s3bu_1",{x:0,y:0,scale:1},{x:185,y:77,scale:.2,duration:.6,ease:"power3.out"},13.45);
+tl.fromTo("#s3bu_2",{x:0,y:0,scale:1},{x:141,y:141,scale:.2,duration:.6,ease:"power3.out"},13.45);
+tl.fromTo("#s3bu_3",{x:0,y:0,scale:1},{x:77,y:185,scale:.2,duration:.6,ease:"power3.out"},13.45);
+tl.fromTo("#s3bu_4",{x:0,y:0,scale:1},{x:-0,y:200,scale:.2,duration:.6,ease:"power3.out"},13.45);
+tl.fromTo("#s3bu_5",{x:0,y:0,scale:1},{x:-77,y:185,scale:.2,duration:.6,ease:"power3.out"},13.45);
+tl.fromTo("#s3bu_6",{x:0,y:0,scale:1},{x:-141,y:141,scale:.2,duration:.6,ease:"power3.out"},13.45);
+tl.fromTo("#s3bu_7",{x:0,y:0,scale:1},{x:-185,y:77,scale:.2,duration:.6,ease:"power3.out"},13.45);
+tl.fromTo("#s3bu_8",{x:0,y:0,scale:1},{x:-200,y:-0,scale:.2,duration:.6,ease:"power3.out"},13.45);
+tl.fromTo("#s3bu_9",{x:0,y:0,scale:1},{x:-185,y:-77,scale:.2,duration:.6,ease:"power3.out"},13.45);
+tl.fromTo("#s3bu_10",{x:0,y:0,scale:1},{x:-141,y:-141,scale:.2,duration:.6,ease:"power3.out"},13.45);
+tl.fromTo("#s3bu_11",{x:0,y:0,scale:1},{x:-77,y:-185,scale:.2,duration:.6,ease:"power3.out"},13.45);
+tl.fromTo("#s3bu_12",{x:0,y:0,scale:1},{x:0,y:-200,scale:.2,duration:.6,ease:"power3.out"},13.45);
+tl.fromTo("#s3bu_13",{x:0,y:0,scale:1},{x:77,y:-185,scale:.2,duration:.6,ease:"power3.out"},13.45);
+tl.fromTo("#s3bu_14",{x:0,y:0,scale:1},{x:141,y:-141,scale:.2,duration:.6,ease:"power3.out"},13.45);
+tl.fromTo("#s3bu_15",{x:0,y:0,scale:1},{x:185,y:-77,scale:.2,duration:.6,ease:"power3.out"},13.45);
+tl.fromTo("#s3mcpb",{scale:2,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.2,ease:"power4.in"},13.50);
+tl.to("#s3duo",{y:80,opacity:0,duration:.3,ease:"power3.in"},13.85);
 tl.to("#s3ann",{y:-60,scale:.9,opacity:0,duration:.35,ease:"power3.in"},13.85);
 tl.fromTo("#s3chat",{y:200,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.45,ease:"expo.out"},14.00);
 tl.fromTo("#s3t0",{opacity:0},{opacity:1,duration:.01},14.250);
@@ -428,14 +505,50 @@ tl.fromTo("#s3t38",{opacity:0},{opacity:1,duration:.01},15.086);
 tl.fromTo("#s3cb",{y:40,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.35,ease:"back.out(2)"},15.30);
 tl.fromTo("#s3spin",{rotation:0},{rotation:1080,duration:3.6,ease:"none"},15.3);
 tl.fromTo("#s3m0",{x:120,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.35,ease:"back.out(2)"},16.85);
+tl.fromTo("#s3m0 .lgm",{scale:0,rotation:-360,opacity:0},{scale:1,rotation:0,opacity:1,x:0,y:0,duration:0.5,ease:"back.out(2.2)"},16.90);
+tl.set("#s3mb0",{opacity:1},17.15);tl.to("#s3mb0",{opacity:0,duration:.25},17.60);
+tl.fromTo("#s3mb0_0",{x:0,y:0,scale:1},{x:90,y:0,scale:.2,duration:.6,ease:"power3.out"},17.15);
+tl.fromTo("#s3mb0_1",{x:0,y:0,scale:1},{x:73,y:53,scale:.2,duration:.6,ease:"power3.out"},17.15);
+tl.fromTo("#s3mb0_2",{x:0,y:0,scale:1},{x:28,y:86,scale:.2,duration:.6,ease:"power3.out"},17.15);
+tl.fromTo("#s3mb0_3",{x:0,y:0,scale:1},{x:-28,y:86,scale:.2,duration:.6,ease:"power3.out"},17.15);
+tl.fromTo("#s3mb0_4",{x:0,y:0,scale:1},{x:-73,y:53,scale:.2,duration:.6,ease:"power3.out"},17.15);
+tl.fromTo("#s3mb0_5",{x:0,y:0,scale:1},{x:-90,y:-0,scale:.2,duration:.6,ease:"power3.out"},17.15);
+tl.fromTo("#s3mb0_6",{x:0,y:0,scale:1},{x:-73,y:-53,scale:.2,duration:.6,ease:"power3.out"},17.15);
+tl.fromTo("#s3mb0_7",{x:0,y:0,scale:1},{x:-28,y:-86,scale:.2,duration:.6,ease:"power3.out"},17.15);
+tl.fromTo("#s3mb0_8",{x:0,y:0,scale:1},{x:28,y:-86,scale:.2,duration:.6,ease:"power3.out"},17.15);
+tl.fromTo("#s3mb0_9",{x:0,y:0,scale:1},{x:73,y:-53,scale:.2,duration:.6,ease:"power3.out"},17.15);
 tl.fromTo("#s3p0",{scaleX:0},{scaleX:1,duration:1.90,ease:"power1.inOut"},17.05);
 tl.fromTo("#s3m1",{x:120,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.35,ease:"back.out(2)"},17.33);
+tl.fromTo("#s3m1 .lgm",{scale:0,rotation:-360,opacity:0},{scale:1,rotation:0,opacity:1,x:0,y:0,duration:0.5,ease:"back.out(2.2)"},17.38);
+tl.set("#s3mb1",{opacity:1},17.63);tl.to("#s3mb1",{opacity:0,duration:.25},18.08);
+tl.fromTo("#s3mb1_0",{x:0,y:0,scale:1},{x:90,y:0,scale:.2,duration:.6,ease:"power3.out"},17.63);
+tl.fromTo("#s3mb1_1",{x:0,y:0,scale:1},{x:73,y:53,scale:.2,duration:.6,ease:"power3.out"},17.63);
+tl.fromTo("#s3mb1_2",{x:0,y:0,scale:1},{x:28,y:86,scale:.2,duration:.6,ease:"power3.out"},17.63);
+tl.fromTo("#s3mb1_3",{x:0,y:0,scale:1},{x:-28,y:86,scale:.2,duration:.6,ease:"power3.out"},17.63);
+tl.fromTo("#s3mb1_4",{x:0,y:0,scale:1},{x:-73,y:53,scale:.2,duration:.6,ease:"power3.out"},17.63);
+tl.fromTo("#s3mb1_5",{x:0,y:0,scale:1},{x:-90,y:-0,scale:.2,duration:.6,ease:"power3.out"},17.63);
+tl.fromTo("#s3mb1_6",{x:0,y:0,scale:1},{x:-73,y:-53,scale:.2,duration:.6,ease:"power3.out"},17.63);
+tl.fromTo("#s3mb1_7",{x:0,y:0,scale:1},{x:-28,y:-86,scale:.2,duration:.6,ease:"power3.out"},17.63);
+tl.fromTo("#s3mb1_8",{x:0,y:0,scale:1},{x:28,y:-86,scale:.2,duration:.6,ease:"power3.out"},17.63);
+tl.fromTo("#s3mb1_9",{x:0,y:0,scale:1},{x:73,y:-53,scale:.2,duration:.6,ease:"power3.out"},17.63);
 tl.fromTo("#s3p1",{scaleX:0},{scaleX:1,duration:1.50,ease:"power1.inOut"},17.53);
 tl.fromTo("#s3m2",{x:120,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.35,ease:"back.out(2)"},18.05);
+tl.fromTo("#s3m2 .lgm",{scale:0,rotation:-360,opacity:0},{scale:1,rotation:0,opacity:1,x:0,y:0,duration:0.5,ease:"back.out(2.2)"},18.10);
+tl.set("#s3mb2",{opacity:1},18.35);tl.to("#s3mb2",{opacity:0,duration:.25},18.80);
+tl.fromTo("#s3mb2_0",{x:0,y:0,scale:1},{x:90,y:0,scale:.2,duration:.6,ease:"power3.out"},18.35);
+tl.fromTo("#s3mb2_1",{x:0,y:0,scale:1},{x:73,y:53,scale:.2,duration:.6,ease:"power3.out"},18.35);
+tl.fromTo("#s3mb2_2",{x:0,y:0,scale:1},{x:28,y:86,scale:.2,duration:.6,ease:"power3.out"},18.35);
+tl.fromTo("#s3mb2_3",{x:0,y:0,scale:1},{x:-28,y:86,scale:.2,duration:.6,ease:"power3.out"},18.35);
+tl.fromTo("#s3mb2_4",{x:0,y:0,scale:1},{x:-73,y:53,scale:.2,duration:.6,ease:"power3.out"},18.35);
+tl.fromTo("#s3mb2_5",{x:0,y:0,scale:1},{x:-90,y:-0,scale:.2,duration:.6,ease:"power3.out"},18.35);
+tl.fromTo("#s3mb2_6",{x:0,y:0,scale:1},{x:-73,y:-53,scale:.2,duration:.6,ease:"power3.out"},18.35);
+tl.fromTo("#s3mb2_7",{x:0,y:0,scale:1},{x:-28,y:-86,scale:.2,duration:.6,ease:"power3.out"},18.35);
+tl.fromTo("#s3mb2_8",{x:0,y:0,scale:1},{x:28,y:-86,scale:.2,duration:.6,ease:"power3.out"},18.35);
+tl.fromTo("#s3mb2_9",{x:0,y:0,scale:1},{x:73,y:-53,scale:.2,duration:.6,ease:"power3.out"},18.35);
 tl.fromTo("#s3p2",{scaleX:0},{scaleX:1,duration:1.10,ease:"power1.inOut"},18.25);
 tl.fromTo("#s4w",{opacity:0,y:120,rotationX:20,scale:.94,filter:"blur(12px)"},{opacity:1,y:0,rotationX:0,scale:1,filter:"blur(0px)",duration:.5,ease:"expo.out"},19.22);
 tl.to("#s4w",{x:-520,opacity:0,filter:"blur(16px)",duration:.26,ease:"power3.in"},21.62);
-tl.fromTo("#s4bgi",{scale:1.16},{scale:1.02,duration:2.70,ease:"power1.out"},19.20);
+tl.fromTo("#s4bgi",{x:0,y:0},{x:-72,y:-72,duration:2.70,ease:"none"},19.20);
 tl.fromTo("#s4bg",{opacity:0},{opacity:1,duration:.3,ease:"power1.out"},19.15);
 tl.fromTo("#s4card",{scale:.7,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.4,ease:"back.out(2)"},19.25);
 tl.fromTo("#s4free",{scale:1.8,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.2,ease:"power4.in"},19.95);
@@ -455,10 +568,12 @@ tl.fromTo("#s4bu_9",{x:0,y:0,scale:1},{x:0,y:-180,scale:.2,duration:.6,ease:"pow
 tl.fromTo("#s4bu_10",{x:0,y:0,scale:1},{x:90,y:-156,scale:.2,duration:.6,ease:"power3.out"},20.65);
 tl.fromTo("#s4bu_11",{x:0,y:0,scale:1},{x:156,y:-90,scale:.2,duration:.6,ease:"power3.out"},20.65);
 tl.fromTo("#s4q",{rotation:0},{rotation:10,duration:.2,yoyo:true,repeat:3},21.0);
+tl.fromTo("#s4tag",{y:-400,rotation:-60,opacity:0},{scale:1,rotation:0,opacity:1,x:0,y:0,duration:0.7,ease:"back.out(2.2)"},19.60);
+tl.fromTo("#s4tag",{rotation:0},{rotation:-14,duration:.4,yoyo:true,repeat:3,ease:"sine.inOut",immediateRender:false},20.3);
 tl.fromTo("#s4next",{x:-100,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.35,ease:"expo.out"},20.75);
 tl.fromTo("#s5w",{opacity:0,y:120,rotationX:20,scale:.94,filter:"blur(12px)"},{opacity:1,y:0,rotationX:0,scale:1,filter:"blur(0px)",duration:.5,ease:"expo.out"},21.92);
 tl.to("#s5w",{x:-520,opacity:0,filter:"blur(16px)",duration:.26,ease:"power3.in"},28.52);
-tl.fromTo("#s5bgi",{scale:1.16},{scale:1.02,duration:6.90,ease:"power1.out"},21.90);
+tl.fromTo("#s5bgi",{x:0,y:0},{x:-72,y:-72,duration:6.90,ease:"none"},21.90);
 tl.fromTo("#s5bg",{opacity:0},{opacity:1,duration:.3,ease:"power1.out"},21.85);
 tl.fromTo("#s5src",{opacity:0,x:60},{opacity:1,x:0,duration:.35,ease:"expo.out"},22.50);
 tl.to("#s5src",{opacity:0,duration:.2},28.52);
@@ -473,6 +588,7 @@ tl.fromTo("#s5end",{scale:2,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,dur
 tl.fromTo("#s5b",{x:300,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.4,ease:"expo.out"},24.15);
 tl.fromTo("#s5shackle",{y:-7},{y:0,duration:.18,ease:"power4.in"},25.4);
 tl.fromTo("#s5b .ic",{x:0},{x:-8,duration:.05,yoyo:true,repeat:5},25.6);
+tl.fromTo("#s5c .ic .hcoin",{scale:0,rotation:-720,opacity:0},{scale:1,rotation:0,opacity:1,x:0,y:0,duration:0.7,ease:"back.out(2.2)"},26.70);
 tl.fromTo("#s5c",{x:300,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.4,ease:"expo.out"},26.60);
 tl.fromTo("#s5meter",{scaleX:1},{scaleX:.18,duration:1.6,ease:"power1.in"},27.0);
 tl.fromTo("#s5coin0",{x:0,y:0,opacity:0,scale:.6},{x:40,y:-140,opacity:1,scale:1,duration:.45,ease:"power2.out"},27.00);tl.to("#s5coin0",{opacity:0,duration:.2},27.45);
@@ -492,7 +608,7 @@ tl.fromTo("#s6arr path",{strokeDashoffset:420},{strokeDashoffset:0,duration:.5,e
 tl.fromTo("#s6arr",{y:0},{y:18,duration:.25,yoyo:true,repeat:1},31.05);
 tl.fromTo("#s7w",{opacity:0,y:120,rotationX:20,scale:.94,filter:"blur(12px)"},{opacity:1,y:0,rotationX:0,scale:1,filter:"blur(0px)",duration:.5,ease:"expo.out"},31.62);
 tl.to("#s7w",{x:-520,opacity:0,filter:"blur(16px)",duration:.26,ease:"power3.in"},39.22);
-tl.fromTo("#s7bgi",{scale:1.16},{scale:1.02,duration:7.90,ease:"power1.out"},31.60);
+tl.fromTo("#s7bgi",{x:0,y:0},{x:-72,y:-72,duration:7.90,ease:"none"},31.60);
 tl.fromTo("#s7bg",{opacity:0},{opacity:1,duration:.3,ease:"power1.out"},31.55);
 tl.fromTo("#s7src",{opacity:0,x:60},{opacity:1,x:0,duration:.35,ease:"expo.out"},32.20);
 tl.to("#s7src",{opacity:0,duration:.2},39.22);
@@ -519,18 +635,28 @@ tl.fromTo("#s7bu_11",{x:0,y:0,scale:1},{x:49,y:-214,scale:.2,duration:.6,ease:"p
 tl.fromTo("#s7bu_12",{x:0,y:0,scale:1},{x:137,y:-172,scale:.2,duration:.6,ease:"power3.out"},35.00);
 tl.fromTo("#s7bu_13",{x:0,y:0,scale:1},{x:198,y:-95,scale:.2,duration:.6,ease:"power3.out"},35.00);
 tl.fromTo("#s7sh",{x:-300},{x:1300,duration:.9,ease:"power2.inOut"},35.20);
+tl.fromTo("#s7card .sh .lg",{scale:0,rotation:-200,opacity:0},{scale:1,rotation:0,opacity:1,x:0,y:0,duration:0.6,ease:"back.out(2.2)"},32.10);
+tl.fromTo("#s7ride",{x:0,y:0,opacity:0},{x:470,y:-160,opacity:1,duration:2.6,ease:"power2.in"},33.3);
+tl.fromTo("#s7rt",{rotation:0},{rotation:360,duration:2.6,ease:"power2.in"},33.3);
+tl.fromTo("#s7rt",{scale:1},{scale:1.3,duration:.14,yoyo:true,repeat:1,ease:"power2.out",immediateRender:false},35.90);
 tl.fromTo("#s7m",{scale:0,opacity:0,rotation:-20},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.35,ease:"back.out(3)"},35.95);
 tl.fromTo("#s7v",{y:200,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.45,ease:"expo.out"},37.30);
+tl.fromTo("#s7cl",{scale:0,rotation:-200,opacity:0},{scale:1,rotation:0,opacity:1,x:0,y:0,duration:0.6,ease:"back.out(2.2)"},37.45);
+tl.fromTo("#s7cl",{rotation:0},{rotation:12,duration:.12,yoyo:true,repeat:3,ease:"sine.inOut",immediateRender:false},38.50);
 tl.fromTo("#s7hl",{backgroundSize:"0% 100%"},{backgroundSize:"100% 100%",duration:.35,ease:"power2.out"},38.5);
 tl.fromTo("#s8w",{opacity:0,y:120,rotationX:20,scale:.94,filter:"blur(12px)"},{opacity:1,y:0,rotationX:0,scale:1,filter:"blur(0px)",duration:.5,ease:"expo.out"},39.52);
 tl.to("#s8w",{x:-520,opacity:0,filter:"blur(16px)",duration:.26,ease:"power3.in"},43.12);
-tl.fromTo("#s8bgi",{scale:1.16},{scale:1.02,duration:3.90,ease:"power1.out"},39.50);
+tl.fromTo("#s8bgi",{x:0,y:0},{x:-72,y:-72,duration:3.90,ease:"none"},39.50);
 tl.fromTo("#s8bg",{opacity:0},{opacity:1,duration:.3,ease:"power1.out"},39.45);
 tl.fromTo("#s8poll",{y:160,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.45,ease:"expo.out"},39.55);
 tl.fromTo("#s8o0",{x:-80,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.3,ease:"back.out(2)"},39.90);
 tl.fromTo("#s8f0",{scaleX:0},{scaleX:0.62,duration:.8,ease:"power3.out"},40.25);
 tl.fromTo("#s8o1",{x:-80,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.3,ease:"back.out(2)"},40.05);
 tl.fromTo("#s8f1",{scaleX:0},{scaleX:0.38,duration:.8,ease:"power3.out"},40.35);
+tl.fromTo("#s8poll .iglogo",{scale:0,rotation:-200,opacity:0},{scale:1,rotation:0,opacity:1,x:0,y:0,duration:0.6,ease:"back.out(2.2)"},39.60);
+tl.fromTo("#s8poll .iglogo",{rotation:0},{rotation:12,duration:.12,yoyo:true,repeat:3,ease:"sine.inOut",immediateRender:false},40.30);
+tl.fromTo("#s8a",{scale:0,rotation:-200,opacity:0},{scale:1,rotation:0,opacity:1,x:0,y:0,duration:0.45,ease:"back.out(2.2)"},42.20);
+tl.fromTo("#s8b",{scale:0,rotation:-200,opacity:0},{scale:1,rotation:0,opacity:1,x:0,y:0,duration:0.45,ease:"back.out(2.2)"},42.35);
 tl.fromTo("#s8cmt",{y:40,opacity:0},{scale:1,opacity:1,y:0,x:0,rotation:0,duration:0.35,ease:"back.out(2)"},40.75);
 tl.fromTo("#s8cmt",{y:0},{y:10,duration:.25,yoyo:true,repeat:3,ease:"sine.inOut",immediateRender:false},41.1);
 tl.fromTo("#s8cur",{x:760,y:820,opacity:0},{x:760,y:820,opacity:1,duration:.15},41.40);tl.to("#s8cur",{x:175,y:640,duration:.4,ease:"power3.inOut"},41.50);

@@ -17,10 +17,12 @@ IDS = [f"s{i + 1}" for i in range(len(STARTS))]
 SC = {sid: (STARTS[i], (STARTS + [OUTRO])[i + 1]) for i, sid in enumerate(IDS)}
 
 # full-screen backgrounds: real images from higgsfield.ai (file, object-position)
-BG = {"s1": ("default.jpg", "62% 50%"), "s2": ("SHORTDRAMAS_1-poster.webp", "42% 50%"),
-      "s3": ("video-generation-poster.webp", "58% 50%"), "s4": ("genjutsu-intro-poster.webp", "50% 50%"),
-      "s5": ("houndkeeper-center-poster.webp", "62% 50%"), "s6": ("android-head-cover-poster.webp", "50% 40%"),
-      "s7": ("main-page-banner-poster.webp", "62% 50%"), "s8": ("editorial-motion-graphics-thumbnail.webp", "38% 50%")}
+# Real Higgsfield image only where it fits the beat (with the bottom black gradient);
+# everywhere else a designed background: blue grid, white grid, plain white, plain grey.
+BG = {"s1": ("img", "default.jpg", "62% 50%"),            # hook: Higgsfield's own hero image
+      "s2": ("bluegrid",), "s3": ("whitegrid",), "s4": ("grey",), "s5": ("bluegrid",),
+      "s6": ("img", "genjutsu-intro-poster.webp", "50% 50%"),  # "matters to YOU": a creator
+      "s7": ("whitegrid",), "s8": ("white",)}
 
 SFX = []
 def sfx(kind, t): SFX.append((kind, round(t, 3)))
@@ -74,7 +76,13 @@ def num(n, sid): return f'<div class="numchip" id="{sid}num"><b>{n}</b></div>'
 WARN = '<svg viewBox="0 0 24 24"><path d="M12 3L2 21h20L12 3z" fill="#fff"/><path d="M12 10v5M12 17.6v.4" stroke="#ea333f" stroke-width="2.4" stroke-linecap="round"/></svg>'
 LOCK = ('<svg viewBox="0 0 48 48"><path id="s5shackle" d="M15 22v-7a9 9 0 0118 0v7" fill="none" stroke="#0f172a" stroke-width="4.5" stroke-linecap="round"/>'
         '<rect x="9" y="22" width="30" height="21" rx="5" fill="#0f172a"/><circle cx="24" cy="31" r="3.2" fill="#fff"/><path d="M24 33v4" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>')
-COIN = '<svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="#f59e0b"/><circle cx="24" cy="24" r="14" fill="none" stroke="#fde68a" stroke-width="3"/><text x="24" y="31" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="Pop">C</text></svg>'
+COIN = '<div class="hcoin"><img src="assets/logos/higgsfield.svg" alt=""></div>'
+def tile(name, tid, cls="tile"): return f'<div class="{cls}" id="{tid}"><img src="assets/logos/{name}.svg" alt="{name}"></div>'
+def logo_in(sel, t, frm="scale:0,rotation:-200,opacity:0", d=.55, snd="pop"):
+    if snd: sfx(snd, t)
+    return f'tl.fromTo("{sel}",{{{frm}}},{{scale:1,rotation:0,opacity:1,x:0,y:0,duration:{d},ease:"back.out(2.2)"}},{t:.2f});'
+def wobble(sel, t, deg=10, n=3): return f'tl.fromTo("{sel}",{{rotation:0}},{{rotation:{deg},duration:.12,yoyo:true,repeat:{n},ease:"sine.inOut",immediateRender:false}},{t:.2f});'
+def pulse(sel, t, s=1.18): return f'tl.fromTo("{sel}",{{scale:1}},{{scale:{s},duration:.14,yoyo:true,repeat:1,ease:"power2.out",immediateRender:false}},{t:.2f});'
 PLAY = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="rgba(15,23,42,.6)"/><path d="M10 7.5l7 4.5-7 4.5z" fill="#fff"/></svg>'
 
 HOOK = [("Free,", 1.71), ("unlimited", 2.25), ("video", 2.82), ("inside", 3.2)]
@@ -86,7 +94,8 @@ SCENE_HTML = {
  <div class="hook">""" + "".join(f'<span id="s1w{i}">{w}</span>' for i, (w, _) in enumerate(HOOK)) +
  f"""<span class="cl" id="s1cl">{logo("claude", "cll")}Claude</span></div>
 </div>
-<div class="stamp" id="s1st">NOT THE WHOLE STORY</div>{burst("s1bu", 480, 640)}""",
+<div class="plug" id="s1plug">{tile("higgsfield_dark", "s1hf", "tile big")}<svg class="wire" viewBox="0 0 360 40"><path id="s1wire" d="M5 20 C 90 -10, 270 50, 355 20"/></svg>{tile("claude", "s1ct", "tile big")}</div>
+<div class="stamp" id="s1st">NOT THE WHOLE STORY</div>{burst("s1bu", 480, 640)}{burst("s1bu2", 480, 780, 12)}""",
 
 "s2": f"""<div class="card lead" id="s2card">
  <div class="three">""" + "".join(f'<div class="dot" id="s2d{i}">{i + 1}</div>' for i in range(3)) + f"""</div>
@@ -101,6 +110,7 @@ SCENE_HTML = {
 <div class="card ann" id="s3ann"><img class="annimg" src="assets/photos/mcp-og-chatgpt-claude-20260925.webp" alt="">
  <div class="annbar"><span class="pill dark" id="s3mcp">{logo("higgsfield", "lgw")}Higgsfield MCP <b class="v2" id="s3v2">2.0</b></span>
  <span class="pill white" id="s3in">inside {logo("claude", "lgi")}Claude</span></div></div>
+<div class="duo" id="s3duo">{tile("higgsfield_dark", "s3hf", "tile big")}<div class="plus" id="s3plus">+</div>{tile("claude", "s3ct", "tile big")}<div class="mcpb" id="s3mcpb">MCP 2.0</div></div>{burst("s3bu", 480, 760, 16)}
 <div class="card chat" id="s3chat">
  <div class="chead">{logo("claude", "lgc")}<b>Claude</b><span class="hfc">{logo("higgsfield_dark", "lgs")}Higgsfield connected</span></div>
  <div class="ub" id="s3ub">{typed("s3t", "Make a 15s launch video for my sneakers")}</div>
@@ -110,12 +120,13 @@ SCENE_HTML = {
   <div class="model" id="s3m1">{logo("kling", "lgm")}<b>Kling</b><i><u id="s3p1"></u></i></div>
   <div class="model" id="s3m2">{logo("bytedance", "lgm")}<b>Seedance</b><i><u id="s3p2"></u></i></div>
  </div>
-</div>""",
+</div>""" + "".join(burst(f"s3mb{i}", 70, 470 + i * 92, 10) for i in range(3)),
 
 "s4": f"""<div class="card loop" id="s4card">
  <div class="free"><span class="q">“</span><span id="s4free">FREE</span><span class="q">”</span>
  <svg class="strike" viewBox="0 0 600 60"><path id="s4line" d="M10 40 C 160 10, 380 60, 590 18"/></svg></div>
  <div class="qbig" id="s4q">?</div>
+ <div class="ptag" id="s4tag"><img src="assets/logos/higgsfield_dark.svg" alt=""><span>$0?</span></div>
  <div class="next" id="s4next">That's point two →</div>
 </div>{burst("s4bu", 760, 380, 12)}""",
 
@@ -137,16 +148,16 @@ SCENE_HTML = {
  <div class="sh">{HF}<b>Higgsfield says</b></div>
  <div class="lbl">agent-tool usage</div>
  <div class="row"><div class="n42" id="s7big">{odo("s7n", "42", 220)}<span class="x">×</span></div><span class="pill red" id="s7m">in 3 months</span></div>
- <svg class="curve" viewBox="0 0 860 200"><path class="base" d="M10 190 H850"/><path id="s7c" d="M10 186 C 300 184, 520 170, 640 120 S 800 20, 850 8"/></svg>
+ <div class="rider" id="s7ride">{tile("higgsfield", "s7rt", "tile dark")}</div><svg class="curve" viewBox="0 0 860 200"><path class="base" d="M10 190 H850"/><path id="s7c" d="M10 186 C 300 184, 520 170, 640 120 S 800 20, 850 8"/></svg>
 </div>
 <div class="card vchat" id="s7v"><div class="vb"><img src="assets/photos/robot-pop-cover-web-poster.webp" alt=""><div class="play">{PLAY}</div></div>
- <div class="vt">Video is moving <span class="hl" id="s7hl">into chat</span></div></div>{burst("s7bu", 300, 470, 14)}""",
+ {tile("claude", "s7cl", "tile sm")}<div class="vt">Video is moving <span class="hl" id="s7hl">into chat</span></div></div>{burst("s7bu", 300, 470, 14)}""",
 
 "s8": f"""<div class="card poll" id="s8poll"><div class="igh">{logo("instagram", "iglogo")}<b>Would you pay for it?</b></div>
  <div class="opt" id="s8o0"><i id="s8f0"></i><span>Yes, worth it</span></div>
  <div class="opt" id="s8o1"><i id="s8f1"></i><span>No, I'll wait</span></div>
  <div class="cmt" id="s8cmt">Let me know below ↓</div>
- <div class="frow"><div class="follow" id="s8fol">Follow</div><div class="heart" id="s8heart">❤</div></div>
+ <div class="frow"><div class="follow" id="s8fol">Follow</div>{tile("claude", "s8a", "tile sm")}{tile("higgsfield_dark", "s8b", "tile sm")}<div class="heart" id="s8heart">❤</div></div>
  {CURSOR.format(id="s8cur")}{ripple("s8rip", 190, 650)}</div>""",
 }
 SOURCES = {"s3": "Higgsfield MCP announcement", "s5": "Higgsfield docs & pricing", "s7": "Higgsfield"}
@@ -161,7 +172,10 @@ def anim(sid):
     a, b = SC[sid]; J = []; add = J.append
     add(f'tl.fromTo("#{sid}w",{{opacity:0,y:120,rotationX:20,scale:.94,filter:"blur(12px)"}},{{opacity:1,y:0,rotationX:0,scale:1,filter:"blur(0px)",duration:.5,ease:"expo.out"}},{a + .02:.2f});')
     add(f'tl.to("#{sid}w",{{x:-520,opacity:0,filter:"blur(16px)",duration:.26,ease:"power3.in"}},{b - .28:.2f});')
-    add(f'tl.fromTo("#{sid}bgi",{{scale:1.16}},{{scale:1.02,duration:{b - a:.2f},ease:"power1.out"}},{a:.2f});')
+    if BG[sid][0] == "img":
+        add(f'tl.fromTo("#{sid}bgi",{{scale:1.16}},{{scale:1.02,duration:{b - a:.2f},ease:"power1.out"}},{a:.2f});')
+    else:
+        add(f'tl.fromTo("#{sid}bgi",{{x:0,y:0}},{{x:-72,y:-72,duration:{b - a:.2f},ease:"none"}},{a:.2f});')
     if a > 0: add(f'tl.fromTo("#{sid}bg",{{opacity:0}},{{opacity:1,duration:.3,ease:"power1.out"}},{a - .05:.2f});')
     if sid in SOURCES:
         add(f'tl.fromTo("#{sid}src",{{opacity:0,x:60}},{{opacity:1,x:0,duration:.35,ease:"expo.out"}},{a + .6:.2f});')
@@ -176,7 +190,14 @@ def anim(sid):
         add(pop("#s1card", .3, "y:200,opacity:0,scale:.95", "expo.out", .5, "whoosh"))
         for i, (_, t) in enumerate(HOOK):
             add(pop(f"#s1w{i}", t - .05, "y:40,opacity:0,scale:.7", "back.out(3)", .3, "pop"))
+        add(logo_in("#s1card .who .lg", .35, d=.7))
         add(pop("#s1cl", 3.66, "scale:0,opacity:0,rotation:-12", "back.out(3)", .35, "ding"))
+        add(logo_in("#s1cl .cll", 3.66, "scale:0,rotation:-360,opacity:0", .6, None))
+        add(pop("#s1plug", 3.75, "y:60,opacity:0", "expo.out", .3, None))
+        add(logo_in("#s1hf", 3.75, "x:-300,rotation:-360,opacity:0", .5, "whoosh"))
+        add(logo_in("#s1ct", 3.95, "x:300,rotation:360,opacity:0", .5, None))
+        add(f'tl.fromTo("#s1wire",{{strokeDashoffset:400}},{{strokeDashoffset:0,duration:.35,ease:"power2.out"}},4.15);'); sfx("shine", 4.15)
+        add(burst_js("s1bu2", 4.45, 12, 140))
         add(sheen_js("s1sh", 3.9))
         add(f'tl.fromTo("#s1st",{{scale:2.6,opacity:0,rotation:-24}},{{scale:1,opacity:1,rotation:-8,duration:.24,ease:"power4.in"}},4.6);'); sfx("thud", 4.84)
         add(burst_js("s1bu", 4.84, 16, 260))
@@ -189,6 +210,8 @@ def anim(sid):
         add(pop("#s2h", 7.04, "y:30,opacity:0", "expo.out", .35, None))
         add(pop("#s2p", 7.75, "y:30,opacity:0", "expo.out", .35, None))
         add(pop("#s2btn", 7.95, "y:80,opacity:0", "back.out(2)", .35, "pop"))
+        add(logo_in("#s2btn .lgw", 8.0, d=.6, snd=None))
+        add(pulse("#s2btn", 8.7, 1.08))
         add(f'tl.fromTo("#s2cur",{{x:900,y:900,opacity:0}},{{x:900,y:900,opacity:1,duration:.15}},8.2);tl.to("#s2cur",{{x:525,y:600,duration:.4,ease:"power3.inOut"}},8.3);')
         add(ripple_js("s2rip", 8.7)); sfx("pop", 8.7)
         add(pop("#s2wait", 8.75, "scale:2.2,opacity:0,rotation:-15", "power4.in", .22, "thud"))
@@ -196,8 +219,15 @@ def anim(sid):
     if sid == "s3":
         add(pop("#s3ann", 9.65, "y:160,opacity:0", "expo.out", .5, "whoosh"))
         add(pop("#s3mcp", 10.3, "x:-120,opacity:0", "back.out(2)", .4, "pop"))
+        add(pop("#s3duo", 10.35, "opacity:0", "none", .1, None))
+        add(logo_in("#s3hf", 10.35, "x:-420,rotation:-540,opacity:0", .7, "whoosh"))
+        add(pulse("#s3hf", 11.2)); add(wobble("#s3hf", 11.5, 8, 3))
         add(pop("#s3v2", 12.33, "scale:0,opacity:0,rotation:-30", "back.out(4)", .35, "ding"))
         add(pop("#s3in", 13.1, "x:120,opacity:0", "back.out(2)", .4, "pop"))
+        add(logo_in("#s3ct", 13.1, "x:420,rotation:540,opacity:0", .45, "whoosh"))
+        add(pop("#s3plus", 13.4, "scale:0,opacity:0", "back.out(4)", .25, "thud")); add(burst_js("s3bu", 13.45, 16, 200))
+        add(pop("#s3mcpb", 13.5, "scale:2,opacity:0", "power4.in", .2, None))
+        add(f'tl.to("#s3duo",{{y:80,opacity:0,duration:.3,ease:"power3.in"}},13.85);')
         add(f'tl.to("#s3ann",{{y:-60,scale:.9,opacity:0,duration:.35,ease:"power3.in"}},13.85);')
         add(pop("#s3chat", 14.0, "y:200,opacity:0", "expo.out", .45, "whoosh"))
         add(typed_js("s3t", "Make a 15s launch video for my sneakers", 14.25, .022))
@@ -205,6 +235,7 @@ def anim(sid):
         add(f'tl.fromTo("#s3spin",{{rotation:0}},{{rotation:1080,duration:3.6,ease:"none"}},15.3);')
         for i, t in enumerate([16.85, 17.33, 18.05]):
             add(pop(f"#s3m{i}", t, "x:120,opacity:0", "back.out(2)", .35, "pop"))
+            add(logo_in(f"#s3m{i} .lgm", t + .05, "scale:0,rotation:-360,opacity:0", .5, None)); add(burst_js(f"s3mb{i}", t + .3, 10, 90))
             add(f'tl.fromTo("#s3p{i}",{{scaleX:0}},{{scaleX:1,duration:{1.9 - i * .4:.2f},ease:"power1.inOut"}},{t + .2:.2f});')
 
     if sid == "s4":
@@ -213,6 +244,8 @@ def anim(sid):
         add(f'tl.fromTo("#s4line",{{strokeDashoffset:640}},{{strokeDashoffset:0,duration:.35,ease:"power2.in"}},20.4);'); sfx("whoosh", 20.4)
         add(pop("#s4q", 20.6, "scale:0,opacity:0,rotation:-40", "back.out(3)", .35, "ding")); add(burst_js("s4bu", 20.65, 12, 180))
         add(f'tl.fromTo("#s4q",{{rotation:0}},{{rotation:10,duration:.2,yoyo:true,repeat:3}},21.0);')
+        add(logo_in("#s4tag", 19.6, "y:-400,rotation:-60,opacity:0", .7, "whoosh"))
+        add(f'tl.fromTo("#s4tag",{{rotation:0}},{{rotation:-14,duration:.4,yoyo:true,repeat:3,ease:"sine.inOut",immediateRender:false}},20.3);')
         add(pop("#s4next", 20.75, "x:-100,opacity:0", "expo.out", .35, "pop"))
 
     if sid == "s5":
@@ -223,6 +256,7 @@ def anim(sid):
         add(pop("#s5b", 24.15, "x:300,opacity:0", "expo.out", .4, "whoosh"))
         add(f'tl.fromTo("#s5shackle",{{y:-7}},{{y:0,duration:.18,ease:"power4.in"}},25.4);'); sfx("thud", 25.55)
         add(f'tl.fromTo("#s5b .ic",{{x:0}},{{x:-8,duration:.05,yoyo:true,repeat:5}},25.6);')
+        add(logo_in("#s5c .ic .hcoin", 26.7, "scale:0,rotation:-720,opacity:0", .7, "ding"))
         add(pop("#s5c", 26.6, "x:300,opacity:0", "expo.out", .4, "whoosh"))
         add(f'tl.fromTo("#s5meter",{{scaleX:1}},{{scaleX:.18,duration:1.6,ease:"power1.in"}},27.0);')
         for i in range(5):
@@ -244,8 +278,13 @@ def anim(sid):
         add(odo_js("s7n", "42", 220, 34.0, 1.0)); sfx("thud", 35.0)
         add(f'tl.fromTo("#s7big",{{scale:1}},{{scale:1.12,duration:.16,yoyo:true,repeat:1}},35.0);')
         add(burst_js("s7bu", 35.0, 14, 220)); add(sheen_js("s7sh", 35.2))
+        add(logo_in("#s7card .sh .lg", 32.1, d=.6, snd=None))
+        add(f'tl.fromTo("#s7ride",{{x:0,y:0,opacity:0}},{{x:470,y:-160,opacity:1,duration:2.6,ease:"power2.in"}},33.3);')
+        add(f'tl.fromTo("#s7rt",{{rotation:0}},{{rotation:360,duration:2.6,ease:"power2.in"}},33.3);')
+        add(pulse("#s7rt", 35.9, 1.3))
         add(pop("#s7m", 35.95, "scale:0,opacity:0,rotation:-20", "back.out(3)", .35, "ding"))
         add(pop("#s7v", 37.3, "y:200,opacity:0", "expo.out", .45, "whoosh"))
+        add(logo_in("#s7cl", 37.45, d=.6, snd="pop")); add(wobble("#s7cl", 38.5, 12, 3))
         add(f'tl.fromTo("#s7hl",{{backgroundSize:"0% 100%"}},{{backgroundSize:"100% 100%",duration:.35,ease:"power2.out"}},38.5);'); sfx("shine", 38.5)
 
     if sid == "s8":
@@ -253,6 +292,8 @@ def anim(sid):
         for i, w in enumerate([.62, .38]):
             add(pop(f"#s8o{i}", 39.9 + i * .15, "x:-80,opacity:0", "back.out(2)", .3, "pop"))
             add(f'tl.fromTo("#s8f{i}",{{scaleX:0}},{{scaleX:{w},duration:.8,ease:"power3.out"}},{40.25 + i * .1:.2f});')
+        add(logo_in("#s8poll .iglogo", 39.6, d=.6, snd=None)); add(wobble("#s8poll .iglogo", 40.3, 12, 3))
+        add(logo_in("#s8a", 42.2, d=.45)); add(logo_in("#s8b", 42.35, d=.45, snd=None))
         add(pop("#s8cmt", 40.75, "y:40,opacity:0", "back.out(2)", .35, "pop"))
         add(f'tl.fromTo("#s8cmt",{{y:0}},{{y:10,duration:.25,yoyo:true,repeat:3,ease:"sine.inOut",immediateRender:false}},41.1);')
         f = 41.95
@@ -286,9 +327,13 @@ def pose_at(t):
 scene_divs, scene_js, cuts_js = [], [], []
 for sid in IDS:
     a, b = SC[sid]
-    img, pos = BG[sid]
-    bg = (f'<div class="bgph" id="{sid}bg"><img id="{sid}bgi" src="assets/photos/{img}" alt="" style="object-position:{pos}">'
-          f'<div class="bgfade"></div><div class="credit" data-layout-ignore>Image: Higgsfield</div></div>')
+    kind = BG[sid][0]
+    if kind == "img":
+        bg = (f'<div class="bgph" id="{sid}bg"><img id="{sid}bgi" src="assets/photos/{BG[sid][1]}" alt="" style="object-position:{BG[sid][2]}">'
+              f'<div class="bgfade"></div><div class="credit" data-layout-ignore>Image: Higgsfield</div></div>')
+    else:
+        bg = (f'<div class="bgph bgpl {kind}" id="{sid}bg"><div class="gridmv" id="{sid}bgi"></div>'
+              f'<div class="glow g1"></div><div class="glow g2"></div></div>')
     srcchip = f'<div class="src" id="{sid}src"><b>SOURCE</b>{esc(SOURCES[sid])}</div>' if sid in SOURCES else ""
     scene_divs.append(f'<div id="{sid}" class="clip scene" data-start="{a}" data-duration="{b - a:.2f}" data-track-index="2" data-layout-allow-overflow>'
                       f'{bg}<div class="wrap" id="{sid}w">{SCENE_HTML[sid]}</div>{srcchip}</div>')
