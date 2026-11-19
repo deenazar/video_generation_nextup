@@ -1,0 +1,11 @@
+.DS_Store
+node_modules/
+.hyperframes/
+.thumbnails/
+.media/
+renders/
+*.mp4
+tools/rms_*.txt
+tools/sfx_events_*.json
+tools/sfx_parts/
+assets/audio/sfx_*.wav
