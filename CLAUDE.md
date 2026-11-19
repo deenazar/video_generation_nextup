@@ -24,7 +24,12 @@ This repo makes vertical reels (1080x1920) for **NextUp Learn** (Instagram @next
   - If an asset is missing or you can't get it, **ask Nex**. Never draw a stand-in.
   - Logos: `npx hyperframes media-use resolve --type logo --intent "<brand>"`, or GitHub org avatars (`--from https://github.com/<org>.png`).
   - Photos: the HeyGen asset search if signed in, otherwise Wikimedia Commons with a credit line.
-- **Background:** a full-screen real image with a **black gradient fading in at the bottom** of the screen.
+- **Background:** use a full-screen real image (with a **black gradient fading in at the bottom**) **only on the beats
+  where that image really fits** (e.g. the hook, a "this is about YOU" beat). Every other scene gets a designed
+  background, varied across the reel: blue grid lines, white grid lines, plain white, plain grey (slowly drifting grid,
+  soft glows).
+- **Real logos move:** logos spin in, fly in and collide, pulse on the key word, wobble, ride charts. Never a static
+  logo when it can enter with motion.
 - **Icons** look the same as in past reels: real logo files in white rounded tiles or pills.
 - **Make it engaging.** Every reel needs attractive animation, motion graphics, SFX and VFX:
   - card entrances
@@ -53,19 +58,33 @@ This repo makes vertical reels (1080x1920) for **NextUp Learn** (Instagram @next
   - thumbs_up, thumbs_up2, point_up, count
   - what, five_figures, laptop, wave
   - slice, slice2, slice3 (the neck-slice CTA)
-- `m_closed.png` is the talking base. Lip-sync overlays `avatar/mouth/m_*.png` on it from the voice RMS, one value per frame.
-- Placement: left -120, top 950, 780x780. Switch poses on key words and hold each gesture for about 1 s or more.
+- `m_closed.png` is the talking base. Lip-sync overlays `avatar/mouth/m_*.png` on it.
+- **Lip-sync uses `tools/lipsync.py`** (phonemes, not loudness): each Whisper word is split into CMU-dict phonemes
+  (`pip install cmudict`), each phoneme maps to a mouth shape, packed into the frames where the voice is really
+  sounding. Quiet frames close the mouth, 1-frame flickers are merged, and the picture leads the sound by one frame.
+  Add hard words (brand names, acronyms) to `SAY` in `lipsync.py`.
+- **Talking poses** have the head exactly where the mouth overlays fit, so the mouth keeps moving during gestures:
+  `m_closed` (neutral), count, five_figures, point_right, what, thumbs_up2, slice, slice3.
+  The other poses (shocked, thinking, surprised, wave, point_up, thumbs_up, slice2, laptop) have a different head
+  size or a hand on the face: use them only in pauses. `gen.py` swaps back to neutral if one lands on speech.
+- Placement: left -120, **top 1140**, 780x780 (low, body touching the bottom edge). Switch poses on key words and hold
+  each gesture for about 1 s or more.
 
 ## How to make a reel
 
+Every video lives in its own folder `videos/<topic>_<contenttype>_<datetime>/` (datetime IST `YYYYMMDD-HHMM`,
+e.g. `videos/higgsfield-mcp-2_news_20261119-1220/`), on its own branch, delivered as a new PR to `main`.
+Keep the voice MP3 in that folder and the final MP4 as `final_<platform>.mp4` there too.
+Anything reusable goes back into `template/` in the same PR.
+
 ```bash
-cp -R template reels/<topic>              # new project
-cd reels/<topic>
+cp -R template videos/<topic>_<contenttype>_<datetime>   # new project
+cd videos/<topic>_<contenttype>_<datetime>
 # add voice_ta.mp3 / voice_en.mp3 to assets/audio/
 npx hyperframes transcribe assets/audio/voice_en.mp3 -d /tmp/tr_en      # word timings (Tamil: -m medium -l ta)
 for L in ta en; do ffmpeg -v error -i assets/audio/voice_$L.mp3 -af "aresample=44100,asetnsamples=1470,astats=metadata=1:reset=1,ametadata=print:key=lavfi.astats.Overall.RMS_level:file=tools/rms_$L.txt" -f null -; done
 # write tools/gen.py for this script (start from tools/gen_example_ai_layoffs.py)
-sh tools/build.sh ta          # writes index.html + assets/audio/sfx_ta.wav
+DUR=45 sh tools/build.sh ta   # writes index.html + assets/audio/sfx_ta.wav
 npx --yes hyperframes@0.9.56 check
 npx --yes hyperframes@0.9.56 snapshot --at 2,6,10,...   # look at the frames, fix, repeat
 npx --yes hyperframes@0.9.56 render --fps 30 -o renders/nextup_<topic>_tamil_v1.mp4
@@ -94,4 +113,4 @@ How the generator (`gen.py`) is laid out:
   - any honest caveats (no music, a missing asset)
   - an Instagram caption, 3–5 hashtags and a YouTube title
   - the English correction note
-- Don't commit MP4s or Nex's voice files to git (see `.gitignore`).
+- Commit the voice MP3 and the final MP4 inside the video's folder (renders/ scratch files stay ignored).

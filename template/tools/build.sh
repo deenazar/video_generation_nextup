@@ -4,4 +4,4 @@ set -e
 L=${1:-ta}
 python3 tools/gen.py $L
 python3 tools/sfx.py $L
-ffmpeg -v error -y -i assets/audio/sfx_$L.wav -af apad -t 45 tools/sfx_full.wav && mv tools/sfx_full.wav assets/audio/sfx_$L.wav
+ffmpeg -v error -y -i assets/audio/sfx_$L.wav -af apad -t ${DUR:-45} tools/sfx_full.wav && mv tools/sfx_full.wav assets/audio/sfx_$L.wav
